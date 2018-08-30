@@ -15,7 +15,7 @@ si.diskLayout(function(data) {
     DiskSerial=data[0].serialNum;
     //serial1= data[0];
     //console.log(serial1.serialNum);
-    console.log(DiskSerial);
+    //console.log(DiskSerial);
 
     
 });
