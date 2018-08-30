@@ -1,6 +1,6 @@
 //Importamos Express tras instalarlo vía NPM
 var express = require('express');
-//const si = require('systeminformation');
+const si = require('systeminformation');
 let DiskSerial;
 // Definimos App como la función del módulo Express
 var App = express();
