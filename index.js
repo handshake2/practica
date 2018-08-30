@@ -1,6 +1,6 @@
 //Importamos Express tras instalarlo vía NPM
 var express = require('express');
-const si = require('systeminformation');
+//const si = require('systeminformation');
 let DiskSerial;
 // Definimos App como la función del módulo Express
 var App = express();
@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 var options = {
   root: __dirname
 };
-si.diskLayout(function(data) {
+/*si.diskLayout(function(data) {
 	console.log('Serial Disco Duro:');
     DiskSerial=data[0].serialNum;
     //serial1= data[0];
@@ -18,13 +18,13 @@ si.diskLayout(function(data) {
     console.log(DiskSerial);
 
     
-});
+});*/
 // Definimos funciones para luego usarlas al recibir una petición en el router
 function getHTML(req, res) {
   res.sendFile('./index.html', options, (err) => {
     if (err) throw err;
     console.log('Sirviendo index.html')
-    res.end(DiskSerial);
+    //res.end(DiskSerial);
   })
 };
 
