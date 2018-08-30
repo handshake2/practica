@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 var options = {
   root: __dirname
 };
-/*si.diskLayout(function(data) {
+si.diskLayout(function(data) {
 	console.log('Serial Disco Duro:');
     DiskSerial=data[0].serialNum;
     //serial1= data[0];
@@ -18,7 +18,7 @@ var options = {
     console.log(DiskSerial);
 
     
-});*/
+});
 // Definimos funciones para luego usarlas al recibir una petición en el router
 function getHTML(req, res) {
   res.sendFile('./index.html', options, (err) => {
