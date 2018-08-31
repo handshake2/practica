@@ -1,5 +1,7 @@
 //Importamos Express tras instalarlo vía NPM
 var express = require('express');
+const socketio = require('socket.io');
+const http = require('http');
 let DiskSerial;
 // Definimos App como la función del módulo Express
 var App = express();
