@@ -7,6 +7,29 @@ $(function (){
     const $messageBox = $('#message');
     const $chat = $('#chat');
 
+    const $nickForm = $('#nickForm');
+    const $nickError = $('#nickError');
+    const $nickname = $('#nickname');
+
+    const $users = $('#usernames');
+    $nickForm.submit(e => {
+        e.preventDefault();
+        socket.emit('new user', $nickname.val(),data =>{
+            if(data){
+                $('#nickWrap').hide();
+                $('#contentWrap').show();
+            }else{
+                $nickError.html(`
+                <div class="alert alert-danger">
+                  That username already Exists.
+                </div>
+              `);
+            }
+            $nickname.val('');
+
+        });
+    });
+        
     $messageForm.submit( e => {
         e.preventDefault();
         console.log($messageBox.val());
