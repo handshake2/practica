@@ -8,9 +8,7 @@ var App = express();
 const server=http.createServer(App);
 const io = socketio.listen(server);
 
-io.on('connection',socket =>{
-  console.log('new user connected');
-});
+require('./sockets')(io);
 
 // Definimos algunas variables que usaremos en las distintas funciones
 var port = process.env.PORT || 3000;
