@@ -5,6 +5,7 @@ const http = require('http');
 let DiskSerial;
 // Definimos App como la función del módulo Express
 var App = express();
+const server=http.createServer(App);
 
 // Definimos algunas variables que usaremos en las distintas funciones
 var port = process.env.PORT || 3000;
@@ -25,7 +26,7 @@ App.use(express.static('public'));
 // Definimos las rutas
 //App.get('/', getHTML);
 // Escuchamos el puerto de Express
-App.listen(port, function () {
+server.listen(port, function () {
   console.log('Aplicacion escuchando en el puerto: ' + port)
 });
 
