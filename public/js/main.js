@@ -1,1 +1,1 @@
-alert('aca va el xat');
+console.log('aca va el xat');
