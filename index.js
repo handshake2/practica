@@ -10,16 +10,18 @@ var options = {
   root: __dirname
 };
 // Definimos funciones para luego usarlas al recibir una petición en el router
-function getHTML(req, res) {
+/*function getHTML(req, res) {
   res.sendFile('./index.html', options, (err) => {
     if (err) throw err;
     console.log('Sirviendo index.html')
-    //res.end(DiskSerial);
+   
   })
-};
+};*/
+
+App.use(express.static('public'));
 
 // Definimos las rutas
-App.get('/', getHTML);
+//App.get('/', getHTML);
 // Escuchamos el puerto de Express
 App.listen(port, function () {
   console.log('Aplicacion escuchando en el puerto: ' + port)
