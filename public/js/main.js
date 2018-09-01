@@ -57,7 +57,9 @@ $(function (){
     });
     socket.on('whisper',function(data){
         //$chat.append(`<p class="whisper"<b>${data.nick}:</b>${data.msg}</p>`);
-        $chat.append('<p class="whisper"<b>'+data.nick+':</b>'+data.msg+'</p>');
+        //$chat.append('<p class="whisper"<b>'+data.nick+':</b>'+data.msg+'</p>');
+        $chat.append('<p style="margin-top: 0px;margin-bottom: 0px;"<b>'+data.nick+':</b>'+data.msg+'</p>');
+        
     })
     })
     
