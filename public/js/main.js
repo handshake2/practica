@@ -12,42 +12,52 @@ $(function (){
     const $nickname = $('#nickname');
 
     const $users = $('#usernames');
-    $nickForm.submit(e => {
+    $nickForm.submit(function(e) {
         e.preventDefault();
-        socket.emit('new user', $nickname.val(),data =>{
+        socket.emit('new user', $nickname.val(),function(data){
             if(data){
                 $('#nickWrap').hide();
                 $('#contentWrap').show();
             }else{
-                $nickError.html(`
+                $("#nickError").html("Hello <b>That username already Exists</b>!");
+                /*$nickError.html(`
                 <div class="alert alert-danger">
                   That username already Exists.
                 </div>
-              `);
+              `);*/
             }
             $nickname.val('');
 
         });
     });
         
-    $messageForm.submit( e => {
+    $messageForm.submit( function(e) {
         e.preventDefault();
         console.log($messageBox.val());
-        socket.emit('send message', $messageBox.val());
-        //socket.emit('send message', $messageBox.val(), data => {
-          //$chat.append(`<p class="error">${data}</p>`)
-        //});
+        socket.emit('send message', $messageBox.val(),function(data){
+          //$chat.append(`<p class="error">${data}</p>`);
+          $chat.append('<p class="error">'+data+'</p>');   
+        });
+        
         $messageBox.val('');
       });
       socket.on('new message',function(data){
         $chat.append('<b>'+data.nick+'</b>:'+data.msg+'<br/>');
     });
-    socket.on('usernames',data =>{
+    socket.on('usernames',function(data){
         let html='';
         for(let i=0;i<data.length;i++){
-            html += `<p><i class="fas fa-user"></i> ${data[i]}</p>`; 
+            //html += `<p><i class="fas fa-user"></i> ${data[i]}</p>`;
+            html +='<p><i class="fas fa-user"></i>'+data[i]+'</P>';
+            //alert("Data: " +html);
+             
         }
-        $users.html(html);
+        //$users.html(html);
+        $("#usernames").html(html);
     });
+    socket.on('whisper',function(data){
+        //$chat.append(`<p class="whisper"<b>${data.nick}:</b>${data.msg}</p>`);
+        $chat.append('<p class="whisper"<b>'+data.nick+':</b>'+data.msg+'</p>');
+    })
     })
     
