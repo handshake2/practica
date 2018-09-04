@@ -36,7 +36,7 @@ $(function (){
         console.log($messageBox.val());
         socket.emit('send message', $messageBox.val(),function(data){
           //$chat.append(`<p class="error">${data}</p>`);
-          $chat.append('<p class="error">'+data+'</p>');   
+          $chat.append('<p class="error" style="margin-bottom: 0;">'+data+'</p>');   
         });
         
         $messageBox.val('');
